@@ -570,21 +570,30 @@ namespace System.ServiceModel.Dispatcher
 
 			void TryReceiveRequestDone (IAsyncResult result)
 			{
-				RequestContext rc;
-				var reply = (IReplyChannel) result.AsyncState;
-				if (reply.EndTryReceiveRequest (result, out rc))
-				{
-					System.Console.WriteLine("EndTryReceiveRequest True");
-					ProcessRequest (reply, rc);
-				}
-				else
-				{
-					System.Console.WriteLine("EndTryReceiveRequest False");
-					try
+				try
 					{
-						reply.Close ();
-					}	catch { System.Console.WriteLine("Could not close reply, hopefully it is dead."); }
+					RequestContext rc;
+					var reply = (IReplyChannel) result.AsyncState;
+					if (reply.EndTryReceiveRequest (result, out rc))
+					{
+						System.Console.WriteLine("EndTryReceiveRequest True");
+						ProcessRequest (reply, rc);
+					}
+					else
+					{
+						System.Console.WriteLine("EndTryReceiveRequest False");
+						try
+						{
+							reply.Close ();
+						}	catch { System.Console.WriteLine("Could not close reply, hopefully it is dead."); }
+					}
+				} 
+				catch (Exception ex)
+				{
+					System.Console.WriteLine("Exception " + ex.Message + ex.StackTrace + Environment.Newline + Environment.Newline);	
 				}
+				}
+				
 			}
 
 			void TryReceiveDone (IAsyncResult result)
