@@ -571,7 +571,7 @@ namespace System.ServiceModel.Dispatcher
 			void TryReceiveRequestDone (IAsyncResult result)
 			{
 				try
-					{
+				{
 					RequestContext rc;
 					var reply = (IReplyChannel) result.AsyncState;
 					if (reply.EndTryReceiveRequest (result, out rc))
@@ -592,7 +592,7 @@ namespace System.ServiceModel.Dispatcher
 				{
 					System.Console.WriteLine("Exception " + ex.Message + ex.StackTrace + Environment.Newline + Environment.Newline);	
 				}
-				}
+				
 				
 			}
 
