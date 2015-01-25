@@ -573,9 +573,18 @@ namespace System.ServiceModel.Dispatcher
 				RequestContext rc;
 				var reply = (IReplyChannel) result.AsyncState;
 				if (reply.EndTryReceiveRequest (result, out rc))
+				{
+					System.Console.WriteLine("EndTryReceiveRequest True");
 					ProcessRequest (reply, rc);
+				}
 				else
-					reply.Close ();
+				{
+					System.Console.WriteLine("EndTryReceiveRequest False");
+					try
+					{
+						reply.Close ();
+					}	catch { System.Console.WriteLine("Could not close reply, hopefully it is dead."); }
+				}
 			}
 
 			void TryReceiveDone (IAsyncResult result)
