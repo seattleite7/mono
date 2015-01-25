@@ -590,7 +590,7 @@ namespace System.ServiceModel.Dispatcher
 				} 
 				catch (Exception ex)
 				{
-					System.Console.WriteLine("Exception " + ex.Message + ex.StackTrace + Environment.Newline + Environment.Newline);	
+					System.Console.WriteLine("Exception " + ex.Message + ex.StackTrace + Environment.NewLine + Environment.NewLine);	
 				}
 				
 				
