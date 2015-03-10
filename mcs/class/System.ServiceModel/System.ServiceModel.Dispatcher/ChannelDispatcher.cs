@@ -585,6 +585,7 @@ namespace System.ServiceModel.Dispatcher
 						try
 						{
 							reply.Close ();
+							System.IO.File.WriteAllText("/var/www/html/diagnostic/WCFFail.txt", "1");
 						}	catch { System.Console.WriteLine("Could not close reply, hopefully it is dead."); }
 					}
 				} 
