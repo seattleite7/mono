@@ -136,8 +136,14 @@ namespace System.ServiceModel.Channels.Http
 			Logger.LogMessage (MessageLogSourceKind.TransportSend, ref msg, Channel.Source.Source.MaxReceivedMessageSize);
 
 			MemoryStream ms = new MemoryStream ();
+			try{
 			Channel.Encoder.WriteMessage (msg, ms);
 			Context.Response.ContentType = Channel.Encoder.ContentType;
+			} catch //Cannot be changed after the headers are sent (failed message)
+			{
+			   ms.SetLength(0);	
+			
+			}
 
 			string pname = HttpResponseMessageProperty.Name;
 			bool suppressEntityBody = false;
