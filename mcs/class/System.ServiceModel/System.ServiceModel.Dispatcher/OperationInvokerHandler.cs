@@ -34,7 +34,7 @@ namespace System.ServiceModel.Dispatcher
 					Reply (mrc, true);
 				ProcessCustomErrorHandlers (mrc, ex);
 			} catch (System.IO.IOException ioex) { //From  System.Net.ResponseStream.InternalWrite 
-				
+			        System.Console.WriteLine("IO Exception in System.ServiceModel.Dispatcher.OperationInvokerHandler");
 			
 			}
 			return false;
