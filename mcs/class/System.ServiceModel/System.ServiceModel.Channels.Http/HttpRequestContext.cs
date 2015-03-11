@@ -142,7 +142,7 @@ namespace System.ServiceModel.Channels.Http
 			} catch //Cannot be changed after the headers are sent (failed message)
 			{
 			   ms.SetLength(0);	
-			
+			   return;
 			}
 
 			string pname = HttpResponseMessageProperty.Name;
