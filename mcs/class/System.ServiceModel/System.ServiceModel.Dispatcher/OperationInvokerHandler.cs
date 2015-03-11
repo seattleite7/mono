@@ -33,6 +33,9 @@ namespace System.ServiceModel.Dispatcher
 				if (!mrc.Operation.IsOneWay)
 					Reply (mrc, true);
 				ProcessCustomErrorHandlers (mrc, ex);
+			} catch (IOException ioex) { //From  System.Net.ResponseStream.InternalWrite 
+				
+			
 			}
 			return false;
 		}
