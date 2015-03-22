@@ -48,7 +48,7 @@ using System.Net.NetworkInformation;
 
 namespace System.Net.Sockets 
 {
-	public partial class Socket : IDisposable
+	public partial class Socket
 	{
 		private bool islistening;
 		private bool useoverlappedIO;
