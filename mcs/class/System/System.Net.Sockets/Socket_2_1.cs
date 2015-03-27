@@ -1164,7 +1164,7 @@ namespace System.Net.Sockets {
 		{
 			if (disposed)
 				return;
-			Console.WriteLine("Socket disposed in : " + new System.Diagnostics.StackFrame(0).GetMethod().Name);
+			Console.WriteLine("Socket disposed in : " + new System.Diagnostics.StackFrame(1).GetMethod().Name + ", " + new System.Diagnostics.StackFrame(2).GetMethod().Name);
 			disposed = true;
 			bool was_connected = connected;
 			connected = false;
