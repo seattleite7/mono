@@ -1170,7 +1170,7 @@ namespace System.Net.Sockets {
 			{
 				var frame = new System.Diagnostics.StackFrame(frameC);
 				var l = new System.Collections.Generic.List<string>();
-				for (int n =0; n < frame.GetMethod().GetParamters().Length; n++)
+				for (int n =0; n < frame.GetMethod().GetParameters().Length; n++)
 				{
 					l.Add(frame.GetMethod().GetParameters()[n].Name);
 				
