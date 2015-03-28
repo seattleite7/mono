@@ -1173,7 +1173,7 @@ namespace System.Net.Sockets {
 				var l = new System.Collections.Generic.List<string>();
 				for (int n =0; n < frame.GetMethod().GetParamters().Length; n++)
 				{
-					l.Add(frame.GetMethod().GetParameters()[n].Name)
+					l.Add(frame.GetMethod().GetParameters()[n].Name);
 				
 				}
 				Console.WriteLine("Socket disposed in : " + frame.GetMethod().Name + "(" + string.Join(",", l) + ")" );
