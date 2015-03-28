@@ -1175,7 +1175,7 @@ namespace System.Net.Sockets {
 					l.Add(frame.GetMethod().GetParameters()[n].Name);
 				
 				}
-				Console.WriteLine("Socket disposed in : " + frame.GetMethod().Name + "(" + string.Join(",", l) + ")" );
+				Console.WriteLine("Socket disposed in : " + frame.GetMethod().DeclaringType.FullName + "(" + string.Join(",", l) + ")" );
 				frameC++;
 				
 			} 
