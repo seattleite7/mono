@@ -43,7 +43,6 @@ using System.Threading;
 using System.IO;
 using System.Security;
 using System.Text;
-using System.Linq;
 
 #if !NET_2_1
 using System.Net.Configuration;
