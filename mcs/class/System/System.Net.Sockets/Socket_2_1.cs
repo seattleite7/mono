@@ -43,6 +43,7 @@ using System.Threading;
 using System.IO;
 using System.Security;
 using System.Text;
+using System.Linq;
 
 #if !NET_2_1
 using System.Net.Configuration;
@@ -1168,7 +1169,14 @@ namespace System.Net.Sockets {
 			try{
 			while (true)
 			{
-				Console.WriteLine("Socket disposed in : " + new System.Diagnostics.StackFrame(frameC).GetMethod().Name);
+				var frame = new System.Diagnostics.StackFrame(frameC);
+				var l = new System.Collections.Generic.List<string>();
+				for (int n =0; n < frame.GetMethod().GetParamters().Length; n++)
+				{
+					l.Add(frame.GetMethod().GetParameters()[n].Name)
+				
+				}
+				Console.WriteLine("Socket disposed in : " + frame.GetMethod().Name + "(" + string.Join(",", l) + ")" );
 				frameC++;
 				
 			} 
