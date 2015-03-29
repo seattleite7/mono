@@ -1164,7 +1164,7 @@ namespace System.Net.Sockets {
 		{
 			if (disposed)
 				return;
-			int frameC = 0;
+		/*	int frameC = 0;
 			try{
 			while (true)
 			{
@@ -1179,7 +1179,7 @@ namespace System.Net.Sockets {
 				frameC++;
 				
 			} 
-			}catch{}
+			}catch{}*/
 			disposed = true;
 			bool was_connected = connected;
 			connected = false;
